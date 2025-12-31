@@ -11,7 +11,7 @@ import org.json.simple.parser.JSONParser;
 
 public class UpdateChecker {
     private final JavaPlugin plugin;
-    private final String repo = "MoonMag53/SpaceRGBFix";
+    private final String repo = "MoonMag53/SpaceRBGFix";
     private final Logger logger;
 
     public UpdateChecker(JavaPlugin plugin) {
@@ -22,7 +22,7 @@ public class UpdateChecker {
     public void checkForUpdates() {
         Bukkit.getScheduler().runTaskAsynchronously(this.plugin, () -> {
             try {
-                URL url = new URL("https://api.github.com/repos/MoonMag53/SpaceRGBFix/releases/latest");
+                URL url = new URL("https://api.github.com/repos/MoonMag53/SpaceRBGFix/releases/latest");
                 HttpURLConnection conn = (HttpURLConnection)url.openConnection();
                 conn.addRequestProperty("User-Agent", "Mozilla/5.0");
                 if (conn.getResponseCode() == 200) {
@@ -32,7 +32,7 @@ public class UpdateChecker {
                     String currentVersion = this.plugin.getDescription().getVersion();
                     if (!currentVersion.equalsIgnoreCase(latestVersion)) {
                         this.logger.warning("Доступна новая версия плагина: " + latestVersion + " (текущая: " + currentVersion + ")");
-                        this.logger.warning("Скачать: https://github.com/MoonMag53/SpaceRGBFix/releases/tag/" + latestVersion);
+                        this.logger.warning("Скачать: https://github.com/MoonMag53/SpaceRBGFix/releases/tag/" + latestVersion);
                     } else {
                         this.logger.info("Вы используете последнюю версию плагина (" + currentVersion + ")");
                     }
