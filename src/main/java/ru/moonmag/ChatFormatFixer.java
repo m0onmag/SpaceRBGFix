@@ -21,10 +21,10 @@ public class ChatFormatFixer implements Listener {
 
     private String applyHexFormatting(String message) {
         Matcher matcher = HEX_PATTERN.matcher(message);
-        StringBuffer buffer = new StringBuffer();
+        StringBuilder buffer = new StringBuilder();
         while (matcher.find()) {
             String hexColor = matcher.group(2);
-            matcher.appendReplacement(buffer, "§x" + convertHex(hexColor));
+            matcher.appendReplacement(buffer, Matcher.quoteReplacement("§x" + convertHex(hexColor)));
         }
         matcher.appendTail(buffer);
         return buffer.toString();

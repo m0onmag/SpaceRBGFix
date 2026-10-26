@@ -17,7 +17,7 @@
 #                               ╚════════════════════════════════════╝
 
 name: SpaceRGBFix
-version: '1.4'
+version: '1.5'
 main: ru.moonmag.SpaceRGBFix
 api-version: '1.16'
 author: [ SpaceDev ]
